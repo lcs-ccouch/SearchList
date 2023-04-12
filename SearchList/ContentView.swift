@@ -6,19 +6,16 @@
 //
 
 import SwiftUI
-
 struct ContentView: View {
+    // MARK: Stored properties
+    @State var items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
+    // MARK: Computed properties
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        List(items, id: \.self) { currentItem in
+            Text(currentItem)
         }
-        .padding()
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
