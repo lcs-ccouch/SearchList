@@ -18,20 +18,21 @@ struct ContentView: View {
     var body: some View {
         
         NavigationView {
-        VStack {
-            
-        Text("Searching on: \(searchText)")
-            
-            List(items, id: \.self){ currentItem in
-                Text (currentItem)
+            VStack {
+                
+                Text("Searching on: \(searchText)")
+                
+                List(items, id: \.self){ currentItem in
+                    Text (currentItem)
+                }
+                .searchable (text: $searchText)
             }
-        .searchable (text: $searchText)
-                     }
-            }
+        }
     }
 }
-                     struct ContentView_Previews: PreviewProvider {
-                    static var previews: some View {
-                        ContentView()
-                    }
-                }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
